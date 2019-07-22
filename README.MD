@@ -2,4 +2,3 @@
 
 ajout image code html
 marche que avec lien https...
-dc,kdscc,xxcs,
