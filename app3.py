@@ -23,9 +23,9 @@ def effets():
 def hello():
     return render_template("hello.html")
 
-@app.route("/fct1/<name>")
+@app.route("/fct1")
 def fct1(name):
-    return "hello "+name
+    return render_template("fonction1.html", name)
 
 
 if __name__== "__main__":
