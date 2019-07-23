@@ -25,7 +25,7 @@ def hello():
 
 @app.route("/fct1")
 def fct1(name):
-    return render_template("fonction1.html", name =name)
+    return render_template("fonction1.html", msg =name)
 
 
 if __name__== "__main__":
