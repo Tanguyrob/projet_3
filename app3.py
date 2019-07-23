@@ -1,7 +1,19 @@
 # -*- coding: utf-8 -*
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for ,redirect
 
 app = Flask(__name__)
+
+
+@app.route("/", methods=['POST', 'GET'])
+def login():
+    if request.method=='POST':
+        user_name = request.form['name']
+        return render_template("coucou.html", name =user_name)
+    else:
+        user_name= request.form.get('name')
+        return render_template("coucou.html", name = user_name)
+
+
 
 @app.route("/sec")
 def effets():
@@ -12,18 +24,8 @@ def hello():
     return render_template("hello.html")
 
 @app.route("/fct1/<name>")
-def fonction1(name):
+def fct1(name):
     return "hello "+name
-
-@app.route("/login", methods=['POST', 'GET'])
-def login():
-    if request.method=='POST':
-        user_name = request.form['name']
-        return redirect(url_for('fct1', name = user_name))
-    else:
-        user_name= request.form.get('name')
-        return redirect(url_for('fct1', name = user_name))
-
 
 
 if __name__== "__main__":
